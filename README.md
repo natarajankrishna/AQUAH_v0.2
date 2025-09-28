@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # AQUAH_v0.2
 
 An AI-Driven Hydrologic Modeling Agent for Automated Flood Simulation, Data Integration, and Intelligent Reporting.
@@ -90,5 +89,4 @@ aquah_run(llm_model_name)
 
 - This setup builds **CREST/EF5** for hydrologic modeling.  
 - Make sure you have the required dependencies installed (`autotools`, `make`, `python-dotenv`, `jupyter`, etc).  
-=======
 
