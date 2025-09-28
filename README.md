@@ -1,7 +1,7 @@
 <<<<<<< HEAD
-# AQUAH_v0.1 (Linux)
+# AQUAH_v0.2
 
-AI agent for hydrologic modeling
+An AI-Driven Hydrologic Modeling Agent for Automated Flood Simulation, Data Integration, and Intelligent Reporting.
 
 ---
 
@@ -18,8 +18,8 @@ https://github.com/user-attachments/assets/4a78fdd6-3d27-4907-bc82-36afa62e4760
 Clone the repository:
 
 ```bash
-git clone https://github.com/Skyan1002/AQUAH_v0.1.git
-cd AQUAH_v0.1
+git clone https://github.com/natarajankrishna/AQUAH_v0.2.git
+cd AQUAH_v0.2
 ```
 
 Clone EF5:
@@ -45,7 +45,7 @@ make
 
 ## Configuration
 
-Create a `.env` file inside the `AQUAH_v0.1/` folder:
+Create a `.env` file inside the `AQUAH_v0.2/` folder:
 
 ```env
 OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
@@ -67,7 +67,7 @@ Example code:
 import os
 
 # Change the current working directory
-os.chdir('YOUR_PATH/AQUAH_v0.1/')
+os.chdir('YOUR_PATH/AQUAH_v0.2/')
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -91,6 +91,4 @@ aquah_run(llm_model_name)
 - This setup builds **CREST/EF5** for hydrologic modeling.  
 - Make sure you have the required dependencies installed (`autotools`, `make`, `python-dotenv`, `jupyter`, etc).  
 =======
-# AQUAH_v0.2
-An AI-Driven Hydrologic Modeling Agent for Automated Flood Simulation, Data Integration, and Intelligent Reporting.
->>>>>>> fcf20cf69f6ccea3d760f0236657de3ebd00a74c
+
