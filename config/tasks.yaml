@@ -1,0 +1,91 @@
+parse_location:
+  description: >
+    Extract the basin name from the natural language input:
+    {input_text}
+    
+    Your task is to identify and validate the basin name mentioned
+    in the text. Ensure the name is correctly formatted and matches
+    known basin names.
+  expected_output: >
+    The validated basin name as a string.
+
+parse_time_period:
+  description: >
+    Extract the time period from the natural language input:
+    {input_text}
+    
+    Your task is to identify the start and end dates mentioned
+    in the text and convert them to datetime objects. Return ONLY
+    the two datetime objects, nothing else.
+  expected_output: >
+    ONLY two python datetime objects: [start_date, end_date]
+    representing the simulation period. Do not include any other text,
+    explanations, or formatting - just the two datetime objects.
+
+get_basin_center:
+  description: >
+    Given the basin name: '{basin_name}' and the user's original input text: '{input_text}',
+    output the approximate latitude and longitude of a point within this basin as a Python tuple (lat, lon).
+    
+    IMPORTANT: The basin_name may not be correctly parsed. Always prioritize the user's original 
+    input text to understand their specific geographic intent. They may mention specific regions, 
+    cities, or areas that should take precedence over the parsed basin name.
+    
+    Carefully analyze the user's original input text first to identify any specific locations, 
+    coordinates, or geographic references. The coordinates should reflect the user's intended 
+    location while ensuring the point is guaranteed to be inside the basin boundaries.
+    
+    If the user mentions specific locations, prioritize those areas over the parsed basin name. 
+    If you are unsure, make your best estimate based on the user's original input and common 
+    knowledge of major basins, but always ensure the point aligns with the user's geographic 
+    specifications from their original input rather than relying solely on the parsed basin name.
+  expected_output: >
+    A tuple of floats: (latitude, longitude) representing a point inside the basin
+    that accurately reflects the user's intended location from their original input,
+    prioritizing the user's input over the parsed basin name.
+
+write_report:
+  description: >
+    Using the provided simulation metadata and results:
+    - summary: {summary} (simulation summary)
+    - report_for_figures_md: {report_for_figures_md} (analysis report for important figures)
+    Generate a complete Markdown report with:
+    1. Title and Basin Information
+       - Level-1 heading with basin name
+       - Basin & gauge map section
+       - Fundamental basin data
+       - Brief introduction of the basin: {basin_name}, 
+    
+    2. Analysis Sections
+       - Simulation vs Observation comparison
+       - Model Performance Metrics
+       - CREST Parameters
+       - Conclusion/Discussion
+    
+    3. Required Images (using ![]() syntax)
+       - combined_maps.png
+       - basic_data.png 
+       - results.png
+       This figure should be included in the report, the path is {figure_path}
+    
+    4. Data Tables
+       - all Run Arguments (basin details)
+       - Performance Metrics
+       - all CREST Parameters
+       - Format tables vertically with variables listed top-to-bottom:
+
+    5. Discussion Points
+       - Model performance evaluation
+       - Warmup period considerations if bias < -90%
+       - Recommendations for simulation period and next steps
+    
+    Format as publication-ready Markdown with proper headings,
+    image sizing, and layout.
+
+    Note: Beyond the basic requirements, think critically and add necessary insights,
+    analysis points, and professional perspectives that would enhance the report's
+    comprehensiveness and technical depth while maintaining the given structure.
+  expected_output: >
+    A complete, properly formatted Markdown report ready for
+    conversion to PDF via pypandoc. I will use the output to generate a PDF report.
+    Do not include any text after the report, just the report content.
